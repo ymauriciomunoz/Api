@@ -1,0 +1,4 @@
+co/com/empresa/certificacion/producto/runners/ConsumoApi.java
+ co.com.empresa.certificacion.producto.runners.ConsumoApi
+co/com/empresa/certificacion/producto/stepdefinitions/ConsumoApiStepDefinitions.java
+ co.com.empresa.certificacion.producto.stepdefinitions.ConsumoApiStepDefinitions
