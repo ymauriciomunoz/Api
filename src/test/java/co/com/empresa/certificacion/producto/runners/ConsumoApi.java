@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features/consumo_api.feature",
         glue= "co.com.empresa.certificacion.producto.stepdefinitions",
-        snippets = SnippetType.CAMELCASE)
+        snippets = SnippetType.CAMELCASE,tags = "@segundo")
 //co.com.empresa.certificacion.producto.stepdefinitions
 public class ConsumoApi {
 }

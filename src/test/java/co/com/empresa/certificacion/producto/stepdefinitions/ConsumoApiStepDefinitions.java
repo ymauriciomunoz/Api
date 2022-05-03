@@ -7,6 +7,7 @@ import co.com.empresa.certificacion.producto.tasks.ApiPostServicioAdicionalOutli
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
@@ -21,30 +22,31 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class ConsumoApiStepDefinitions {
     private EnvironmentVariables environmentVariables;
+    private Actor yeison= Actor.named("yeison");// es como otro actor, es como theactorinthespotlight o the actor called
     @Given("^I want to run an Api$")
     public void iWantToRunAnApi() {
-        OnStage.setTheStage(new OnlineCast());
-        OnStage.theActorCalled("yeison oe2");
+        //OnStage.setTheStage(new OnlineCast());
+        //OnStage.theActorCalled("yeison oe2");
 
         //String baseUrl=environmentVariables.optionalProperty("https://reqres.in").orElse
                // ("https://reqres.in");
-        theActorInTheSpotlight().whoCan(CallAnApi.at("https://reqres.in"));
+        yeison.whoCan(CallAnApi.at("https://reqres.in"));
 
     }
 
     @When("^run an Api with params$")
     public void runAnApiWithParams() {
-        theActorInTheSpotlight().attemptsTo(ApiPostServicioAdicional.apiPostServicioAdicional());
+        yeison.attemptsTo(ApiPostServicioAdicional.apiPostServicioAdicional());
     }
 
     @Then("^I Get a Response$")
     public void iGetAResponse() {
-       theActorInTheSpotlight().should(GivenWhenThen.seeThat(ApiPost.apiPost(), Matchers.is(true)));
+       yeison.should(GivenWhenThen.seeThat(ApiPost.apiPost(), Matchers.is(true)));
     }
 
     @When("^run an Api with params differents$")
     public void runAnApiWithParamsDifferents(List<Api> data) {
-        theActorInTheSpotlight().attemptsTo(ApiPostServicioAdicionalOutline.apiPostServicioAdicionalOutline(data));
+        yeison.attemptsTo(ApiPostServicioAdicionalOutline.apiPostServicioAdicionalOutline(data));
     }
 
 
